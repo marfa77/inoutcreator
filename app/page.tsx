@@ -10,6 +10,7 @@ import {
 } from "lucide-react";
 import { Navigation } from "@/components/Navigation";
 import { siteConfig } from "@/lib/config";
+import { assetPath } from "@/lib/paths";
 import { profile } from "@/lib/profile";
 
 export const metadata: Metadata = {
@@ -83,7 +84,7 @@ export default function Home() {
             <aside className="order-1 lg:order-2">
               <div className="overflow-hidden rounded-3xl border border-brand-100 bg-white shadow-sm">
                 <Image
-                  src="/avatar.png"
+                  src={assetPath("/avatar.png")}
                   alt={profile.fullName}
                   width={680}
                   height={850}

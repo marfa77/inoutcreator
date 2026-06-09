@@ -1,4 +1,5 @@
 export const siteConfig = {
+  basePath: "/sbunkov",
   url: process.env.NEXT_PUBLIC_SITE_URL || "https://marfa77.github.io/sbunkov",
   name: "Сергей Буньков",
   description:
