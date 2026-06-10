@@ -274,13 +274,23 @@ export default function Home() {
                 <p className="text-sm font-medium uppercase tracking-[0.2em] text-brand-500">
                   Повышение квалификации
                 </p>
-                <ul className="mt-6 space-y-3">
+                <ul className="mt-6 space-y-4">
                   {profile.training.map((item) => (
                     <li
-                      key={item}
-                      className="border-b border-brand-100 pb-3 text-sm leading-6 text-brand-600 last:border-0"
+                      key={item.id}
+                      className="border-b border-brand-100 pb-4 last:border-0"
                     >
-                      {item}
+                      <p className="text-xs font-medium text-brand-500">
+                        {item.year} · {item.organization}
+                      </p>
+                      <p className="mt-1 text-sm font-semibold text-brand-800">
+                        {item.title}
+                      </p>
+                      {item.details && (
+                        <p className="mt-1 text-sm leading-6 text-brand-600">
+                          {item.details}
+                        </p>
+                      )}
                     </li>
                   ))}
                 </ul>
@@ -314,9 +324,7 @@ export default function Home() {
               Готов к диалогу
             </h2>
             <p className="mt-4 max-w-2xl leading-7 text-brand-100">
-              Открыт для профессиональных предложений в сфере управления,
-              операционной эффективности и развития бизнеса в нефтегазовом
-              секторе.
+              {profile.contactMessage}
             </p>
             <div className="mt-8 flex flex-col gap-4 sm:flex-row sm:flex-wrap">
               <a
