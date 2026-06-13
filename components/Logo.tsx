@@ -11,8 +11,8 @@ type LogoProps = {
 };
 
 const sizes = {
-  mark: { width: 1024, height: 1018, className: "h-11 w-11 sm:h-12 sm:w-12" },
-  full: { width: 1024, height: 1018, className: "h-11 w-11 sm:h-12 sm:w-12" },
+  mark: { width: 843, height: 708, className: "h-11 w-auto sm:h-12" },
+  full: { width: 843, height: 708, className: "h-11 w-auto sm:h-12" },
 };
 
 export function Logo({
