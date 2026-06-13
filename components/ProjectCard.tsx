@@ -20,7 +20,7 @@ export function ProjectCard({ project, onSelect }: ProjectCardProps) {
     <button
       type="button"
       onClick={() => onSelect(project)}
-      className="group relative w-[300px] shrink-0 overflow-hidden text-left sm:w-[340px] lg:w-[380px]"
+      className="group relative w-full overflow-hidden text-left"
     >
       <div
         className={cn(
@@ -33,7 +33,7 @@ export function ProjectCard({ project, onSelect }: ProjectCardProps) {
             src={assetPath(cover)}
             alt={project.title}
             fill
-            sizes="(max-width: 640px) 300px, (max-width: 1024px) 340px, 380px"
+            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, (max-width: 1280px) 33vw, 25vw"
             className="object-cover transition-transform duration-700 group-hover:scale-110"
           />
         ) : null}
