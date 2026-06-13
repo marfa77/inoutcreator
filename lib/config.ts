@@ -1,6 +1,8 @@
+const defaultSiteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://inoutcreator.com";
+
 export const siteConfig = {
   basePath: "",
-  url: process.env.NEXT_PUBLIC_SITE_URL || "https://inoutcreator.com",
+  url: defaultSiteUrl,
   name: "INOUT",
   title: "INOUT — Landscape Architecture by Valeria Malakhova",
   description:
@@ -10,6 +12,6 @@ export const siteConfig = {
   whatsapp: "https://wa.me/971589228131",
   footerCredit: {
     variant: "card" as const,
-    locale: "en" as const,
+    locale: defaultSiteUrl.includes("sbunkov") ? ("ru" as const) : ("en" as const),
   },
 };
