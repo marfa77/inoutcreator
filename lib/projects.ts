@@ -24,6 +24,34 @@ const alBarariImages = [
   "01_14_9V3A3507.jpg",
 ].map((file) => `/projects/al-barari/${file}`);
 
+const tilalElanImages = [
+  "02_1_img_4621.jpg",
+  "02_2_img_4618.jpg",
+  "02_3_img_4617.jpg",
+  "02_4_img_4610.jpg",
+  "02_5_img_4605.jpg",
+  "02_6_img_4624.jpg",
+  "02_7_img_4625.jpg",
+  "02_8_img_4603.jpg",
+  "02_9_img_4604.jpg",
+  "02_10_img_4601.jpg",
+  "02_11_img_4626.jpg",
+].map((file) => `/projects/tilal-elan/${file}`);
+
+const miraOasisImages = [
+  "03_1_dsc_3771.jpg",
+  "03_2_dsc_3774.jpg",
+  "03_3_dsc_3788.jpg",
+  "03_4_dsc_3888.jpg",
+  "03_5_dsc_3844.jpg",
+  "03_62_dsc_3776.jpg",
+  "03_6_dsc_3778.jpg",
+  "03_7_dsc_3833.jpg",
+  "03_8_dsc_3894.jpg",
+  "03_9_dsc_3855.jpg",
+  "03_10_dsc_3906.jpg",
+].map((file) => `/projects/mira-oasis/${file}`);
+
 export const projects: Project[] = [
   {
     id: "al-barari",
@@ -43,6 +71,7 @@ export const projects: Project[] = [
     description:
       "One of my earliest projects in the rapidly growing Tilal Al Ghaf community. Despite its compact size, the garden offers several distinct outdoor experiences: a dining area beneath the canopy of a palm tree, a comfortable lounge space under a pergola, and a welcoming entrance pathway leading from the gate to the house. A diverse collection of succulents, chosen for their unique forms, textures, and architectural qualities, serves as the defining feature of the design.",
     gradient: "from-amber-900 via-orange-800 to-amber-600",
+    images: tilalElanImages,
   },
   {
     id: "mira-oasis",
@@ -52,6 +81,7 @@ export const projects: Project[] = [
     description:
       "A garden designed to accommodate different aspects of family life. The layout includes a dedicated parents' retreat with a fire pit and entertaining area, a playful space for children, and a dining terrace seamlessly connected to the house. A thoughtfully curated plant palette unifies all zones, featuring species carefully selected for their adaptability to Dubai's climate, ensuring year-round beauty and sustainable maintenance.",
     gradient: "from-teal-900 via-cyan-800 to-teal-600",
+    images: miraOasisImages,
   },
   {
     id: "harmony-16",
