@@ -1,4 +1,4 @@
-import { Mail, Phone } from "lucide-react";
+import { ArrowUpRight, Mail, Phone } from "lucide-react";
 import { siteConfig } from "@/lib/config";
 import { profile } from "@/lib/profile";
 import { SectionDivider } from "./SectionDivider";
@@ -7,31 +7,36 @@ export function ContactSection() {
   return (
     <>
       <SectionDivider label="Contact" />
-      <section id="contact" className="bg-neutral-900 py-16 text-white sm:py-24">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+      <section id="contact" className="relative overflow-hidden bg-[#f7f4ef] py-20 sm:py-28">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_rgba(196,165,116,0.12),_transparent_65%)]" />
+        <div className="container relative mx-auto px-4 sm:px-6 lg:px-8">
           <div className="mx-auto max-w-3xl text-center">
-            <h2 className="text-2xl font-bold tracking-tight sm:text-3xl">
-              Get in touch
+            <p className="text-[11px] font-medium uppercase tracking-luxury text-bronze-500">
+              Let&apos;s talk
+            </p>
+            <h2 className="font-display mt-4 text-4xl text-forest-950 sm:text-5xl">
+              Begin your garden
             </h2>
-            <p className="mt-4 text-base leading-7 text-neutral-300">
+            <p className="mx-auto mt-5 max-w-xl text-base leading-relaxed text-forest-800/60">
               {profile.contactMessage}
             </p>
-            <div className="mt-10 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
+            <div className="mt-12 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
               <a
                 href={`mailto:${siteConfig.email}`}
-                className="inline-flex w-full items-center justify-center gap-2 bg-white px-8 py-4 text-sm font-semibold lowercase text-neutral-900 transition-colors hover:bg-neutral-100 sm:w-auto"
+                className="group inline-flex w-full items-center justify-center gap-2 bg-forest-900 px-8 py-4 text-[11px] font-medium uppercase tracking-luxury text-sand-50 transition-all hover:bg-bronze-600 sm:w-auto"
               >
                 <Mail className="h-4 w-4" />
                 {siteConfig.email}
+                <ArrowUpRight className="h-4 w-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
               </a>
               <a
                 href={siteConfig.whatsapp}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex w-full items-center justify-center gap-2 border border-white/30 px-8 py-4 text-sm font-semibold lowercase text-white transition-colors hover:bg-white/10 sm:w-auto"
+                className="inline-flex w-full items-center justify-center gap-2 border border-forest-900/15 px-8 py-4 text-[11px] font-medium uppercase tracking-luxury text-forest-900 transition-all hover:border-bronze-500 hover:text-bronze-600 sm:w-auto"
               >
                 <Phone className="h-4 w-4" />
-                {siteConfig.phone}
+                WhatsApp
               </a>
             </div>
           </div>

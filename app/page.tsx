@@ -16,7 +16,7 @@ export const metadata: Metadata = {
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-[#faf9f7] text-neutral-900">
+    <div className="min-h-screen bg-[#f7f4ef] text-forest-950">
       <Navigation />
       <main>
         <HeroSection />
@@ -25,10 +25,10 @@ export default function Home() {
         <ServicesSection />
         <ContactSection />
       </main>
-      <footer className="border-t border-neutral-200 bg-white py-10">
-        <div className="container mx-auto flex flex-col items-center gap-6 px-4 sm:px-6 lg:px-8">
-          <Logo variant="full" href="" className="h-12 opacity-80" />
-          <div className="flex w-full max-w-6xl flex-col items-center justify-between gap-2 text-sm lowercase text-neutral-400 sm:flex-row">
+      <footer className="border-t border-sand-200 bg-forest-950 py-12 text-sand-200/50">
+        <div className="container mx-auto flex flex-col items-center gap-8 px-4 sm:px-6 lg:px-8">
+          <Logo variant="full" href="" className="h-11 brightness-0 invert opacity-70" />
+          <div className="flex w-full max-w-6xl flex-col items-center justify-between gap-3 text-[11px] uppercase tracking-luxury sm:flex-row">
             <p>
               © {new Date().getFullYear()} {profile.brand} · {profile.name}
             </p>

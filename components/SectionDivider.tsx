@@ -1,29 +1,45 @@
 type SectionDividerProps = {
   label?: string;
   rightLabel?: string;
+  dark?: boolean;
 };
 
-export function SectionDivider({ label, rightLabel }: SectionDividerProps) {
+export function SectionDivider({
+  label,
+  rightLabel,
+  dark = false,
+}: SectionDividerProps) {
   return (
-    <div className="w-full">
-      <div className="h-3 bg-neutral-900" />
-      <div className="border-y border-neutral-200 bg-white">
-        {(label || rightLabel) && (
-          <div className="container mx-auto flex items-center justify-between px-4 py-3 sm:px-6 lg:px-8">
-            {label && (
-              <span className="text-xs font-medium uppercase tracking-[0.2em] text-neutral-400">
+    <div
+      className={
+        dark
+          ? "border-y border-white/10 bg-forest-950"
+          : "border-y border-sand-200 bg-[#f7f4ef]"
+      }
+    >
+      {(label || rightLabel) && (
+        <div className="container mx-auto flex items-center justify-between gap-4 px-4 py-5 sm:px-6 lg:px-8">
+          {label ? (
+            <div className="flex items-center gap-4">
+              <span className="h-px w-8 bg-bronze-400" />
+              <span
+                className={`font-display text-xl ${
+                  dark ? "text-sand-100" : "text-forest-900"
+                }`}
+              >
                 {label}
               </span>
-            )}
-            {rightLabel && (
-              <span className="text-xs font-medium uppercase tracking-[0.2em] text-neutral-400">
-                {rightLabel}
-              </span>
-            )}
-          </div>
-        )}
-      </div>
-      <div className="h-px bg-neutral-200" />
+            </div>
+          ) : (
+            <span />
+          )}
+          {rightLabel && (
+            <span className="text-[11px] font-medium uppercase tracking-luxury text-bronze-500">
+              {rightLabel}
+            </span>
+          )}
+        </div>
+      )}
     </div>
   );
 }

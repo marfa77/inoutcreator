@@ -20,11 +20,11 @@ export function ProjectCard({ project, onSelect }: ProjectCardProps) {
     <button
       type="button"
       onClick={() => onSelect(project)}
-      className="group relative w-[280px] shrink-0 overflow-hidden text-left sm:w-[320px] lg:w-[360px]"
+      className="group relative w-[300px] shrink-0 overflow-hidden text-left sm:w-[340px] lg:w-[380px]"
     >
       <div
         className={cn(
-          "relative aspect-[4/5] overflow-hidden bg-gradient-to-br transition-transform duration-500 group-hover:scale-[1.02]",
+          "relative aspect-[3/4] overflow-hidden bg-gradient-to-br shadow-card transition-all duration-700 group-hover:-translate-y-1 group-hover:shadow-editorial",
           !cover && project.gradient
         )}
       >
@@ -33,21 +33,26 @@ export function ProjectCard({ project, onSelect }: ProjectCardProps) {
             src={assetPath(cover)}
             alt={project.title}
             fill
-            sizes="(max-width: 640px) 280px, (max-width: 1024px) 320px, 360px"
-            className="object-cover transition-transform duration-500 group-hover:scale-105"
+            sizes="(max-width: 640px) 300px, (max-width: 1024px) 340px, 380px"
+            className="object-cover transition-transform duration-700 group-hover:scale-110"
           />
         ) : null}
-        <div className="absolute inset-0 bg-black/10 transition-colors group-hover:bg-black/5" />
-        <div className="absolute left-4 top-4 flex gap-2">
-          <span className="rounded-full bg-white/95 px-3 py-1 text-xs font-medium text-neutral-800 backdrop-blur-sm">
+        <div className="absolute inset-0 bg-forest-950/0 transition-colors duration-500 group-hover:bg-forest-950/20" />
+        <div className="absolute left-5 top-5 flex gap-2 opacity-0 transition-opacity duration-500 group-hover:opacity-100">
+          <span className="border border-white/20 bg-forest-950/40 px-3 py-1 text-[10px] font-medium uppercase tracking-luxury text-sand-50 backdrop-blur-md">
             {project.location}
           </span>
-          <span className="rounded-full bg-white/95 px-3 py-1 text-xs font-medium text-neutral-800 backdrop-blur-sm">
+          <span className="border border-white/20 bg-forest-950/40 px-3 py-1 text-[10px] font-medium uppercase tracking-luxury text-sand-50 backdrop-blur-md">
             {project.year}
           </span>
         </div>
-        <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/60 to-transparent p-6 pt-16">
-          <h3 className="text-lg font-semibold text-white">{project.title}</h3>
+        <div className="absolute inset-x-0 bottom-0 translate-y-2 bg-gradient-to-t from-forest-950/90 via-forest-950/50 to-transparent px-6 pb-6 pt-20 transition-transform duration-500 group-hover:translate-y-0">
+          <p className="text-[10px] font-medium uppercase tracking-luxury text-bronze-400">
+            {project.year}
+          </p>
+          <h3 className="font-display mt-1 text-2xl text-sand-50">
+            {project.title}
+          </h3>
         </div>
       </div>
     </button>
@@ -153,7 +158,7 @@ function ImageLightbox({
         />
       </div>
 
-      <p className="absolute bottom-4 left-1/2 -translate-x-1/2 text-sm text-white/70">
+      <p className="absolute bottom-6 left-1/2 -translate-x-1/2 font-display text-lg text-white/60">
         {index + 1} / {images.length}
       </p>
     </div>
@@ -173,7 +178,7 @@ function GalleryImage({ src, alt, onClick, className }: GalleryImageProps) {
       type="button"
       onClick={onClick}
       className={cn(
-        "group relative overflow-hidden rounded-sm bg-neutral-100 transition-opacity hover:opacity-90",
+        "group relative overflow-hidden bg-sand-200 transition-all duration-300 hover:ring-2 hover:ring-bronze-400/50",
         className
       )}
     >
@@ -221,21 +226,21 @@ export function ProjectModal({ project, onClose }: ProjectModalProps) {
   return (
     <>
       <div
-        className="fixed inset-0 z-[100] flex items-end justify-center bg-black/50 p-4 sm:items-center"
+        className="fixed inset-0 z-[100] flex items-end justify-center bg-forest-950/70 p-4 backdrop-blur-sm sm:items-center"
         onClick={onClose}
         role="dialog"
         aria-modal="true"
         aria-labelledby="project-title"
       >
         <div
-          className="relative max-h-[90vh] w-full max-w-3xl overflow-y-auto rounded-sm bg-white shadow-2xl"
+          className="relative max-h-[90vh] w-full max-w-4xl overflow-y-auto bg-sand-50 shadow-editorial"
           onClick={(e) => e.stopPropagation()}
         >
           {cover ? (
             <button
               type="button"
               onClick={() => setLightboxIndex(0)}
-              className="relative block h-48 w-full overflow-hidden sm:h-64"
+              className="relative block h-56 w-full overflow-hidden sm:h-72"
             >
               <Image
                 src={assetPath(cover)}
@@ -258,39 +263,39 @@ export function ProjectModal({ project, onClose }: ProjectModalProps) {
           <button
             type="button"
             onClick={onClose}
-            className="absolute right-4 top-4 z-10 rounded-full bg-white/90 p-2 text-neutral-700 transition-colors hover:bg-white"
+            className="absolute right-4 top-4 z-10 rounded-full border border-white/20 bg-forest-950/50 p-2.5 text-sand-50 backdrop-blur-md transition-colors hover:bg-forest-950/70"
             aria-label="Close project"
           >
             <X className="h-4 w-4" />
           </button>
 
-          <div className="relative -mt-16 px-6 pb-2 pt-12 sm:px-8">
-            <div className="flex gap-2">
-              <span className="rounded-full bg-white/95 px-3 py-1 text-xs font-medium text-neutral-800 shadow-sm">
+          <div className="relative px-6 pb-2 pt-8 sm:px-10 sm:pt-10">
+            <div className="flex gap-3">
+              <span className="text-[10px] font-medium uppercase tracking-luxury text-bronze-500">
                 {project.location}
               </span>
-              <span className="rounded-full bg-white/95 px-3 py-1 text-xs font-medium text-neutral-800 shadow-sm">
+              <span className="text-[10px] font-medium uppercase tracking-luxury text-forest-800/40">
                 {project.year}
               </span>
             </div>
             <h2
               id="project-title"
-              className="mt-3 text-2xl font-bold text-neutral-900"
+              className="font-display mt-3 text-3xl text-forest-950 sm:text-4xl"
             >
               {project.title}
             </h2>
           </div>
 
-          <div className="px-6 pb-6 sm:px-8 sm:pb-8">
-            <p className="text-base leading-7 text-neutral-600">
+          <div className="px-6 pb-8 sm:px-10 sm:pb-10">
+            <p className="text-base leading-8 text-forest-800/70">
               {project.description}
             </p>
             {images.length > 1 && (
               <>
-                <p className="mt-8 text-xs lowercase text-neutral-400">
-                  click a photo to enlarge
+                <p className="mt-10 font-display text-base italic text-forest-800/40">
+                  Click any image to view full size
                 </p>
-                <div className="mt-3 grid grid-cols-2 gap-3 sm:grid-cols-3">
+                <div className="mt-4 grid grid-cols-2 gap-3 sm:grid-cols-3">
                   {images.slice(1).map((image, i) => (
                     <GalleryImage
                       key={image}
