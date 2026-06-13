@@ -60,6 +60,10 @@ const harmony16Images = Array.from({ length: 18 }, (_, i) =>
   `/projects/harmony-16/04_${String(i + 1).padStart(2, "0")}.jpg`
 );
 
+const sidra77Images = Array.from({ length: 17 }, (_, i) =>
+  `/projects/sidra-77/06_${String(i + 1).padStart(2, "0")}.jpg`
+);
+
 export const projects: Project[] = [
   {
     id: "al-barari",
@@ -119,6 +123,7 @@ export const projects: Project[] = [
     description:
       "The first project in a series of landscape transformations created for property investors seeking to increase the market appeal of their villas. The challenge was to create the impression of a mature, established garden while maintaining a carefully controlled budget. Key features include a floating deck extending over the pool with integrated evening lighting, a cascading water feature, a tall ficus hedge for privacy, and a strategic selection of plants chosen for their ability to create an immediate visual impact. The result is a garden that significantly enhances both lifestyle appeal and property value.",
     gradient: "from-slate-900 via-blue-900 to-cyan-800",
+    images: sidra77Images,
   },
   {
     id: "sidra-9",
