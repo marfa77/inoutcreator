@@ -5,6 +5,7 @@ import { PortfolioSection } from "@/components/PortfolioSection";
 import { AboutSection } from "@/components/AboutSection";
 import { ServicesSection } from "@/components/ServicesSection";
 import { ContactSection } from "@/components/ContactSection";
+import { FooterCredit } from "@/components/FooterCredit";
 import { siteConfig } from "@/lib/config";
 import { profile } from "@/lib/profile";
 
@@ -34,6 +35,11 @@ export default function Home() {
               {profile.role} · {profile.location}
             </p>
           </div>
+          <FooterCredit
+            variant={siteConfig.footerCredit.variant}
+            locale={siteConfig.footerCredit.locale}
+            className="footer-credit text-center text-xs normal-case tracking-normal text-sand-200/40"
+          />
         </div>
       </footer>
     </div>

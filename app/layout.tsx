@@ -3,6 +3,7 @@ import { Cormorant_Garamond, Inter } from "next/font/google";
 import { siteConfig } from "@/lib/config";
 import { profile } from "@/lib/profile";
 import { assetPath } from "@/lib/paths";
+import { PixidOrganizationSchema } from "@/components/PixidOrganizationSchema";
 import "./globals.css";
 
 const inter = Inter({
@@ -54,7 +55,10 @@ export default function RootLayout({
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en" className={`${inter.variable} ${cormorant.variable}`}>
-      <body className="font-sans antialiased">{children}</body>
+      <body className="font-sans antialiased">
+        <PixidOrganizationSchema />
+        {children}
+      </body>
     </html>
   );
 }

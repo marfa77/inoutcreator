@@ -8,4 +8,8 @@ export const siteConfig = {
   email: "vm.inout@gmail.com",
   phone: "+971 58 922 8131",
   whatsapp: "https://wa.me/971589228131",
+  footerCredit: {
+    variant: "card" as const,
+    locale: "en" as const,
+  },
 };
