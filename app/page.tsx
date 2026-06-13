@@ -31,6 +31,14 @@ export default function Home() {
             <p>
               © {new Date().getFullYear()} {profile.brand} · {profile.name}
             </p>
+            <a
+              href={siteConfig.instagram}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="normal-case tracking-normal transition-colors hover:text-bronze-400"
+            >
+              {siteConfig.instagramHandle}
+            </a>
             <p>
               {profile.role} · {profile.location}
             </p>

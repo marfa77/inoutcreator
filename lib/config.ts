@@ -10,6 +10,8 @@ export const siteConfig = {
   email: "vm.inout@gmail.com",
   phone: "+971 58 922 8131",
   whatsapp: "https://wa.me/971589228131",
+  instagram: "https://www.instagram.com/valeria.inoutdesign/",
+  instagramHandle: "@valeria.inoutdesign",
   footerCredit: {
     variant: "card" as const,
     locale: defaultSiteUrl.includes("sbunkov") ? ("ru" as const) : ("en" as const),
