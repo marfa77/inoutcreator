@@ -52,6 +52,10 @@ const miraOasisImages = [
   "03_10_dsc_3906.jpg",
 ].map((file) => `/projects/mira-oasis/${file}`);
 
+const harmony27Images = Array.from({ length: 24 }, (_, i) =>
+  `/projects/harmony-27/05_${String(i + 1).padStart(2, "0")}.jpg`
+);
+
 export const projects: Project[] = [
   {
     id: "al-barari",
@@ -100,6 +104,7 @@ export const projects: Project[] = [
     description:
       "A garden dedicated to experimentation and innovation. The project explores a combination of materials, textures, and construction techniques, including timber integrated into paving, handcrafted wooden arches supporting climbing plants and swings, stabilized decorative gravel, and my favorite Italian travertine laid in a Crazy Shape pattern. A refined, neo-classical planting palette brings balance and elegance, while the custom details give the garden a distinctive personality.",
     gradient: "from-rose-900 via-stone-700 to-amber-700",
+    images: harmony27Images,
   },
   {
     id: "sidra-77",
