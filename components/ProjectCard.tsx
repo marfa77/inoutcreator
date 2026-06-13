@@ -109,8 +109,11 @@ function ImageLightbox({
     >
       <button
         type="button"
-        onClick={onClose}
-        className="absolute right-4 top-4 z-10 rounded-full bg-white/10 p-2 text-white transition-colors hover:bg-white/20"
+        onClick={(e) => {
+          e.stopPropagation();
+          onClose();
+        }}
+        className="fixed z-[111] flex h-11 w-11 items-center justify-center rounded-full bg-white/15 text-white backdrop-blur-md transition-colors hover:bg-white/25 touch-manipulation right-[max(1rem,env(safe-area-inset-right))] top-[max(1rem,env(safe-area-inset-top))]"
         aria-label="Close"
       >
         <X className="h-5 w-5" />
@@ -123,7 +126,7 @@ function ImageLightbox({
             e.stopPropagation();
             goPrev();
           }}
-          className="absolute left-2 top-1/2 z-10 -translate-y-1/2 rounded-full bg-white/10 p-2 text-white transition-colors hover:bg-white/20 sm:left-4"
+          className="absolute left-2 top-1/2 z-10 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full bg-white/10 text-white transition-colors hover:bg-white/20 touch-manipulation sm:left-4"
           aria-label="Previous photo"
         >
           <ChevronLeft className="h-6 w-6" />
@@ -137,7 +140,7 @@ function ImageLightbox({
             e.stopPropagation();
             goNext();
           }}
-          className="absolute right-2 top-1/2 z-10 -translate-y-1/2 rounded-full bg-white/10 p-2 text-white transition-colors hover:bg-white/20 sm:right-4"
+          className="absolute right-2 top-1/2 z-10 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full bg-white/10 text-white transition-colors hover:bg-white/20 touch-manipulation sm:right-4"
           aria-label="Next photo"
         >
           <ChevronRight className="h-6 w-6" />
@@ -162,6 +165,32 @@ function ImageLightbox({
         {index + 1} / {images.length}
       </p>
     </div>
+  );
+}
+
+function ModalCloseButton({
+  onClose,
+  className,
+}: {
+  onClose: () => void;
+  className?: string;
+}) {
+  return (
+    <button
+      type="button"
+      onClick={(e) => {
+        e.stopPropagation();
+        onClose();
+      }}
+      className={cn(
+        "fixed z-[101] flex h-11 w-11 items-center justify-center rounded-full border border-white/25 bg-forest-950/80 text-sand-50 shadow-lg backdrop-blur-md transition-colors hover:bg-forest-950 touch-manipulation",
+        "right-[max(1rem,env(safe-area-inset-right))] top-[max(1rem,env(safe-area-inset-top))]",
+        className
+      )}
+      aria-label="Close"
+    >
+      <X className="h-5 w-5" />
+    </button>
   );
 }
 
@@ -226,14 +255,15 @@ export function ProjectModal({ project, onClose }: ProjectModalProps) {
   return (
     <>
       <div
-        className="fixed inset-0 z-[100] flex items-end justify-center bg-forest-950/70 p-4 backdrop-blur-sm sm:items-center"
+        className="fixed inset-0 z-[100] flex items-end justify-center bg-forest-950/70 p-0 backdrop-blur-sm sm:items-center sm:p-4"
         onClick={onClose}
         role="dialog"
         aria-modal="true"
         aria-labelledby="project-title"
       >
+        <ModalCloseButton onClose={onClose} />
         <div
-          className="relative max-h-[90vh] w-full max-w-4xl overflow-y-auto bg-sand-50 shadow-editorial"
+          className="relative max-h-[92dvh] w-full max-w-4xl overflow-y-auto overscroll-contain bg-sand-50 shadow-editorial sm:max-h-[90vh] sm:rounded-sm"
           onClick={(e) => e.stopPropagation()}
         >
           {cover ? (
@@ -249,7 +279,7 @@ export function ProjectModal({ project, onClose }: ProjectModalProps) {
                 sizes="768px"
                 className="object-cover transition-transform duration-300 hover:scale-[1.02]"
               />
-              <div className="absolute inset-0 bg-black/0 transition-colors hover:bg-black/10" />
+              <div className="pointer-events-none absolute inset-0 bg-black/0 transition-colors hover:bg-black/10" />
             </button>
           ) : (
             <div
@@ -259,15 +289,6 @@ export function ProjectModal({ project, onClose }: ProjectModalProps) {
               )}
             />
           )}
-
-          <button
-            type="button"
-            onClick={onClose}
-            className="absolute right-4 top-4 z-10 rounded-full border border-white/20 bg-forest-950/50 p-2.5 text-sand-50 backdrop-blur-md transition-colors hover:bg-forest-950/70"
-            aria-label="Close project"
-          >
-            <X className="h-4 w-4" />
-          </button>
 
           <div className="relative px-6 pb-2 pt-8 sm:px-10 sm:pt-10">
             <div className="flex gap-3">
