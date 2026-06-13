@@ -6,8 +6,8 @@ import "./globals.css";
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
   title: {
-    default: "Сергей Буньков | Генеральный директор",
-    template: "%s | Сергей Буньков",
+    default: siteConfig.title,
+    template: `%s | ${siteConfig.name}`,
   },
   description: siteConfig.description,
   authors: [{ name: siteConfig.name }],
@@ -16,17 +16,17 @@ export const metadata: Metadata = {
     apple: assetPath("/icon.svg"),
   },
   openGraph: {
-    type: "profile",
-    locale: "ru_RU",
+    type: "website",
+    locale: "en_US",
     url: siteConfig.url,
     siteName: siteConfig.name,
-    title: "Сергей Буньков | Генеральный директор",
+    title: siteConfig.title,
     description: siteConfig.description,
     images: [
       {
-        url: assetPath("/avatar.png"),
+        url: assetPath("/portrait.png"),
         width: 800,
-        height: 800,
+        height: 1000,
         alt: siteConfig.name,
       },
     ],
@@ -38,7 +38,7 @@ export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="ru">
+    <html lang="en">
       <body className="antialiased">{children}</body>
     </html>
   );

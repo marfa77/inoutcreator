@@ -2,37 +2,44 @@
 
 import Link from "next/link";
 import { cn } from "@/lib/utils";
+import { siteConfig } from "@/lib/config";
 
 const navItems = [
-  { href: "#about", label: "Обо мне" },
-  { href: "#experience", label: "Опыт" },
-  { href: "#education", label: "Образование" },
-  { href: "#contact", label: "Контакты" },
+  { href: "#portfolio", label: "Portfolio" },
+  { href: "#about", label: "About" },
+  { href: "#services", label: "Services" },
+  { href: "#contact", label: "Contact" },
 ];
 
 export function Navigation() {
   return (
-    <nav className="sticky top-0 z-50 w-full border-b border-brand-100 bg-white/90 backdrop-blur-sm">
+    <nav className="sticky top-0 z-50 w-full border-b border-neutral-200/80 bg-white/90 backdrop-blur-sm">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex h-14 items-center justify-between">
           <Link
             href="/"
-            className="text-lg font-semibold text-brand-900 hover:text-brand-700"
+            className="text-sm font-semibold uppercase tracking-[0.15em] text-neutral-900"
           >
-            Сергей Буньков
+            {siteConfig.name}
           </Link>
-          <div className="hidden items-center gap-6 sm:flex">
+          <div className="flex items-center gap-5 sm:gap-8">
             {navItems.map((item) => (
               <a
                 key={item.href}
                 href={item.href}
                 className={cn(
-                  "text-sm font-medium text-brand-500 transition-colors hover:text-brand-900"
+                  "hidden text-sm lowercase text-neutral-500 transition-colors hover:text-neutral-900 sm:inline"
                 )}
               >
                 {item.label}
               </a>
             ))}
+            <a
+              href={`mailto:${siteConfig.email}`}
+              className="text-sm lowercase text-neutral-500 transition-colors hover:text-neutral-900"
+            >
+              e-mail
+            </a>
           </div>
         </div>
       </div>

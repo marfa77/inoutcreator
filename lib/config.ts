@@ -1,13 +1,11 @@
 export const siteConfig = {
   basePath: "",
-  url: process.env.NEXT_PUBLIC_SITE_URL || "https://sbunkov.ru",
-  name: "Сергей Буньков",
+  url: process.env.NEXT_PUBLIC_SITE_URL || "https://inoutcreator.com",
+  name: "InOut Creator",
+  title: "InOut Creator — Landscape Designer",
   description:
-    "Сергей Буньков — генеральный директор, руководитель в сфере управления проектами полного цикла в нефтегазовом секторе.",
-  email: "s.a.bunkov@yandex.ru",
-  phones: ["+7 (926) 455-19-35", "+7 (985) 443-92-26"],
-  company: {
-    name: "ООО «Ацис Технология»",
-    url: "https://acis.ru/",
-  },
+    "Landscape designer in Dubai. Thoughtfully designed gardens that balance elegance, comfort, and family living.",
+  email: "vm.inout@gmail.com",
+  phone: "+971 58 922 8131",
+  whatsapp: "https://wa.me/971589228131",
 };

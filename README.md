@@ -1,28 +1,32 @@
-# sbunkov.ru — сайт-визитка Сергея Бунькова
+# InOut Creator — Landscape Designer Portfolio
 
-Персональный сайт на русском языке.
+Personal portfolio site for a landscape designer based in Dubai.
 
-## Стек
+**Live site:** [inoutcreator.com](https://inoutcreator.com)
+
+## Stack
 
 - Next.js 14, TypeScript, Tailwind CSS
-- Статический экспорт → GitHub Pages
+- Static export → GitHub Pages
 
-## Локальная разработка
+## Local development
 
 ```bash
 npm install
 npm run dev
 ```
 
-## Деплой
+## Deploy
 
-- Репозиторий: [marfa77/sbunkov](https://github.com/marfa77/sbunkov)
-- Домен: **https://sbunkov.ru**
+- Repository: [marfa77/inoutcreator](https://github.com/marfa77/inoutcreator)
+- Domain: **https://inoutcreator.com**
 - GitHub Actions: `.github/workflows/deploy.yml`
 
-## DNS для sbunkov.ru
+Enable GitHub Pages: **Settings → Pages → Source: GitHub Actions**.
 
-У регистратора домена добавьте A-записи для корня `@`:
+## DNS for inoutcreator.com
+
+At your domain registrar, add A records for the apex `@`:
 
 ```text
 @  A  185.199.108.153
@@ -31,7 +35,7 @@ npm run dev
 @  A  185.199.111.153
 ```
 
-Опционально IPv6:
+Optional IPv6:
 
 ```text
 @  AAAA  2606:50c0:8000::153
@@ -40,12 +44,16 @@ npm run dev
 @  AAAA  2606:50c0:8003::153
 ```
 
-Для `www.sbunkov.ru`:
+For `www.inoutcreator.com`:
 
 ```text
 www  CNAME  marfa77.github.io
 ```
 
-После настройки DNS в GitHub: **Settings → Pages → Custom domain** → `sbunkov.ru`, включить **Enforce HTTPS**.
+After DNS is configured, in GitHub: **Settings → Pages → Custom domain** → `inoutcreator.com`, enable **Enforce HTTPS**.
 
-Распространение DNS — от нескольких минут до 24–48 часов.
+The `public/CNAME` file is included in the build output automatically.
+
+## Content
+
+Edit project data in `lib/projects.ts`, services in `lib/services.ts`, profile text in `lib/profile.ts`, and contact details in `lib/config.ts`.

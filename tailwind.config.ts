@@ -11,13 +11,6 @@ const config: Config = {
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
-        brand: {
-          50: "#f4f6f8",
-          100: "#e8edf2",
-          500: "#4a6274",
-          700: "#2f4555",
-          900: "#1a2d3a",
-        },
       },
       fontFamily: {
         sans: [
