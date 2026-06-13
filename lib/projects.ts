@@ -5,7 +5,24 @@ export type Project = {
   year: number;
   description: string;
   gradient: string;
+  images?: string[];
 };
+
+const alBarariImages = [
+  "01_1_9V3A3038.jpg",
+  "01_2_9V3A3113.jpg",
+  "01_3_9V3A3622.jpg",
+  "01_4_9V3A3557.jpg",
+  "01_5_9V3A3625.jpg",
+  "01_6_9V3A3462.jpg",
+  "01_7_9V3A2966.jpg",
+  "01_8_9V3A2976.jpg",
+  "01_9_9V3A2920.jpg",
+  "01_10_9V3A3278.jpg",
+  "01_11_9V3A3345.jpg",
+  "01_13_9V3A3664.jpg",
+  "01_14_9V3A3507.jpg",
+].map((file) => `/projects/al-barari/${file}`);
 
 export const projects: Project[] = [
   {
@@ -16,6 +33,7 @@ export const projects: Project[] = [
     description:
       "A green oasis within one of Dubai's most prestigious communities. The garden was carefully divided into several functional spaces, each offering its own atmosphere and purpose. The entrance courtyard features decorative wall lighting that transforms the facade into an artistic focal point from the very first step. The pool area creates a relaxing resort-like setting, while the spacious natural lawn provides the perfect place for children to play. The result is a harmonious outdoor environment that balances elegance, comfort, and family living.",
     gradient: "from-emerald-900 via-green-700 to-lime-600",
+    images: alBarariImages,
   },
   {
     id: "tilal-elan",
@@ -74,3 +92,7 @@ export const projects: Project[] = [
 ];
 
 export const portfolioYears = "2024–2026";
+
+export function getProjectCover(project: Project): string | null {
+  return project.images?.[0] ?? null;
+}

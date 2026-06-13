@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { siteConfig } from "@/lib/config";
+import { profile } from "@/lib/profile";
 import { assetPath } from "@/lib/paths";
 import "./globals.css";
 
@@ -10,10 +11,10 @@ export const metadata: Metadata = {
     template: `%s | ${siteConfig.name}`,
   },
   description: siteConfig.description,
-  authors: [{ name: siteConfig.name }],
+  authors: [{ name: profile.name }],
   icons: {
-    icon: assetPath("/icon.svg"),
-    apple: assetPath("/icon.svg"),
+    icon: assetPath("/logo-mark.png"),
+    apple: assetPath("/logo-mark.png"),
   },
   openGraph: {
     type: "website",

@@ -1,8 +1,10 @@
 "use client";
 
-import { useState } from "react";
+import Image from "next/image";
 import { X } from "lucide-react";
 import type { Project } from "@/lib/projects";
+import { getProjectCover } from "@/lib/projects";
+import { assetPath } from "@/lib/paths";
 import { cn } from "@/lib/utils";
 
 type ProjectCardProps = {
@@ -11,6 +13,8 @@ type ProjectCardProps = {
 };
 
 export function ProjectCard({ project, onSelect }: ProjectCardProps) {
+  const cover = getProjectCover(project);
+
   return (
     <button
       type="button"
@@ -19,10 +23,19 @@ export function ProjectCard({ project, onSelect }: ProjectCardProps) {
     >
       <div
         className={cn(
-          "relative aspect-[4/5] bg-gradient-to-br transition-transform duration-500 group-hover:scale-[1.02]",
-          project.gradient
+          "relative aspect-[4/5] overflow-hidden bg-gradient-to-br transition-transform duration-500 group-hover:scale-[1.02]",
+          !cover && project.gradient
         )}
       >
+        {cover ? (
+          <Image
+            src={assetPath(cover)}
+            alt={project.title}
+            fill
+            sizes="(max-width: 640px) 280px, (max-width: 1024px) 320px, 360px"
+            className="object-cover transition-transform duration-500 group-hover:scale-105"
+          />
+        ) : null}
         <div className="absolute inset-0 bg-black/10 transition-colors group-hover:bg-black/5" />
         <div className="absolute left-4 top-4 flex gap-2">
           <span className="rounded-full bg-white/95 px-3 py-1 text-xs font-medium text-neutral-800 backdrop-blur-sm">
@@ -48,6 +61,8 @@ type ProjectModalProps = {
 export function ProjectModal({ project, onClose }: ProjectModalProps) {
   if (!project) return null;
 
+  const cover = getProjectCover(project);
+
   return (
     <div
       className="fixed inset-0 z-[100] flex items-end justify-center bg-black/50 p-4 sm:items-center"
@@ -57,19 +72,28 @@ export function ProjectModal({ project, onClose }: ProjectModalProps) {
       aria-labelledby="project-title"
     >
       <div
-        className="max-h-[85vh] w-full max-w-2xl overflow-y-auto rounded-sm bg-white shadow-2xl"
+        className="max-h-[90vh] w-full max-w-3xl overflow-y-auto rounded-sm bg-white shadow-2xl"
         onClick={(e) => e.stopPropagation()}
       >
         <div
           className={cn(
-            "relative h-48 bg-gradient-to-br sm:h-56",
-            project.gradient
+            "relative h-48 overflow-hidden sm:h-64",
+            !cover && cn("bg-gradient-to-br", project.gradient)
           )}
         >
+          {cover ? (
+            <Image
+              src={assetPath(cover)}
+              alt={project.title}
+              fill
+              sizes="768px"
+              className="object-cover"
+            />
+          ) : null}
           <button
             type="button"
             onClick={onClose}
-            className="absolute right-4 top-4 rounded-full bg-white/90 p-2 text-neutral-700 transition-colors hover:bg-white"
+            className="absolute right-4 top-4 z-10 rounded-full bg-white/90 p-2 text-neutral-700 transition-colors hover:bg-white"
             aria-label="Close"
           >
             <X className="h-4 w-4" />
@@ -95,6 +119,24 @@ export function ProjectModal({ project, onClose }: ProjectModalProps) {
           <p className="text-base leading-7 text-neutral-600">
             {project.description}
           </p>
+          {project.images && project.images.length > 1 && (
+            <div className="mt-8 grid grid-cols-2 gap-3 sm:grid-cols-3">
+              {project.images.slice(1).map((image) => (
+                <div
+                  key={image}
+                  className="relative aspect-[4/3] overflow-hidden rounded-sm bg-neutral-100"
+                >
+                  <Image
+                    src={assetPath(image)}
+                    alt={`${project.title} — project photo`}
+                    fill
+                    sizes="(max-width: 640px) 50vw, 240px"
+                    className="object-cover"
+                  />
+                </div>
+              ))}
+            </div>
+          )}
         </div>
       </div>
     </div>

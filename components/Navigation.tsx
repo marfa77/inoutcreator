@@ -1,8 +1,8 @@
 "use client";
 
-import Link from "next/link";
 import { cn } from "@/lib/utils";
 import { siteConfig } from "@/lib/config";
+import { Logo } from "@/components/Logo";
 
 const navItems = [
   { href: "#portfolio", label: "Portfolio" },
@@ -15,13 +15,8 @@ export function Navigation() {
   return (
     <nav className="sticky top-0 z-50 w-full border-b border-neutral-200/80 bg-white/90 backdrop-blur-sm">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex h-14 items-center justify-between">
-          <Link
-            href="/"
-            className="text-sm font-semibold uppercase tracking-[0.15em] text-neutral-900"
-          >
-            {siteConfig.name}
-          </Link>
+        <div className="flex h-16 items-center justify-between">
+          <Logo variant="mark" priority />
           <div className="flex items-center gap-5 sm:gap-8">
             {navItems.map((item) => (
               <a

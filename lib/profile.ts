@@ -1,6 +1,7 @@
 export const profile = {
-  name: "InOut Creator",
-  role: "Landscape Designer",
+  name: "Valeria Malakhova",
+  brand: "INOUT",
+  role: "Landscape Architecture",
   location: "Dubai, UAE",
   headline:
     "Landscapes where nature becomes part of a thoughtfully designed way of living.",
