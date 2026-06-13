@@ -64,6 +64,10 @@ const sidra77Images = Array.from({ length: 17 }, (_, i) =>
   `/projects/sidra-77/06_${String(i + 1).padStart(2, "0")}.jpg`
 );
 
+const sidra9Images = Array.from({ length: 31 }, (_, i) =>
+  `/projects/sidra-9/07_${String(i + 1).padStart(2, "0")}.jpg`
+);
+
 export const projects: Project[] = [
   {
     id: "al-barari",
@@ -133,6 +137,7 @@ export const projects: Project[] = [
     description:
       "The second project in the landscape transformation series demonstrates how seemingly similar plots can inspire completely different design solutions. Even when site dimensions are nearly identical, factors such as sun exposure, surrounding vegetation, neighboring properties, and architectural context create unique opportunities. Through a different planting palette and tailored design approach, this garden developed its own distinct character and atmosphere while maintaining the same objective of maximizing visual appeal and value.",
     gradient: "from-indigo-900 via-violet-900 to-purple-700",
+    images: sidra9Images,
   },
 ];
 
