@@ -16,7 +16,7 @@ export function Navigation() {
     <nav className="sticky top-0 z-50 border-b border-sand-200/60 bg-[#f7f4ef]/80 backdrop-blur-xl">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex h-[4.5rem] items-center justify-between">
-          <Logo variant="mark" priority />
+          <Logo variant="full" priority className="h-9 sm:h-10" />
           <div className="flex items-center gap-6 sm:gap-10">
             {navItems.map((item) => (
               <a

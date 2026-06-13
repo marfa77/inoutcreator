@@ -5,7 +5,6 @@ import { PortfolioSection } from "@/components/PortfolioSection";
 import { AboutSection } from "@/components/AboutSection";
 import { ServicesSection } from "@/components/ServicesSection";
 import { ContactSection } from "@/components/ContactSection";
-import { Logo } from "@/components/Logo";
 import { siteConfig } from "@/lib/config";
 import { profile } from "@/lib/profile";
 
@@ -26,8 +25,7 @@ export default function Home() {
         <ContactSection />
       </main>
       <footer className="border-t border-sand-200 bg-forest-950 py-12 text-sand-200/50">
-        <div className="container mx-auto flex flex-col items-center gap-8 px-4 sm:px-6 lg:px-8">
-          <Logo variant="full" href="" className="h-11 brightness-0 invert opacity-70" />
+        <div className="container mx-auto flex flex-col items-center gap-4 px-4 sm:px-6 lg:px-8">
           <div className="flex w-full max-w-6xl flex-col items-center justify-between gap-3 text-[11px] uppercase tracking-luxury sm:flex-row">
             <p>
               © {new Date().getFullYear()} {profile.brand} · {profile.name}

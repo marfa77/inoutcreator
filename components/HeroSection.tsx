@@ -1,6 +1,5 @@
 import Image from "next/image";
 import { ArrowUpRight } from "lucide-react";
-import { Logo } from "@/components/Logo";
 import { assetPath } from "@/lib/paths";
 import { profile } from "@/lib/profile";
 
@@ -13,9 +12,8 @@ export function HeroSection() {
       <div className="container relative mx-auto px-4 pb-20 pt-10 sm:px-6 sm:pb-28 sm:pt-14 lg:px-8">
         <div className="mx-auto grid max-w-7xl items-end gap-12 lg:grid-cols-[1.1fr_0.9fr] lg:gap-16">
           <div className="max-w-2xl">
-            <Logo variant="full" priority className="mb-10 h-14 sm:h-[4.5rem]" />
             <p className="text-[11px] font-medium uppercase tracking-luxury text-bronze-500">
-              {profile.role} · {profile.location}
+              {profile.brand} · {profile.role} · {profile.location}
             </p>
             <h1 className="font-display mt-5 text-balance text-[2.75rem] font-medium leading-[1.05] tracking-tight text-forest-950 sm:text-5xl lg:text-[4.25rem]">
               {profile.headline}
