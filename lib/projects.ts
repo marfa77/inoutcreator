@@ -56,6 +56,10 @@ const harmony27Images = Array.from({ length: 24 }, (_, i) =>
   `/projects/harmony-27/05_${String(i + 1).padStart(2, "0")}.jpg`
 );
 
+const harmony16Images = Array.from({ length: 18 }, (_, i) =>
+  `/projects/harmony-16/04_${String(i + 1).padStart(2, "0")}.jpg`
+);
+
 export const projects: Project[] = [
   {
     id: "al-barari",
@@ -95,6 +99,7 @@ export const projects: Project[] = [
     description:
       "A project that remains especially meaningful to me thanks to the clients' exceptional involvement and attention to detail. Together, we focused on creating not only a beautiful and functional garden, but also a technically well-planned outdoor space designed for long-term enjoyment. The concept combines the clean geometry of traditional paving with lush, naturalistic planting that softens its structured lines. The garden features an outdoor barbecue area with a bar counter, as well as a mirrored wall element that visually expands the space and creates the illusion of a hidden garden beyond.",
     gradient: "from-stone-800 via-neutral-700 to-stone-500",
+    images: harmony16Images,
   },
   {
     id: "harmony-27",
